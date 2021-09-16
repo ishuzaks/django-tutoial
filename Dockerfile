@@ -8,10 +8,6 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PIP_NO_CACHE_DIR=off \
     PIP_DISABLE_PIP_VERSION_CHECK=on
 
-# RUN apt-get update && apt-get -y install \
-#     git \
-#     curl
-
 RUN useradd --user-group --create-home --shell $(which bash) app
 RUN USER=app && \
     GROUP=app && \

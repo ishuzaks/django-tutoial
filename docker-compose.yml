@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    user: "${UID:-1000}:${GID:-1000}"
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: aS*S5.LP|nV2
+      MYSQL_DATABASE: django-tutorial
+      MYSQL_USER: django
+      MYSQL_PASSWORD: PciNJ7.Tx8.n
+    volumes:
+      - type: volume
+        source: db-data
+        target: /var/lib/mysql
+
+volumes:
+  db-data:

@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'tutorial.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': 'db',
+        'PORT': '3306',
+        'NAME': 'django-tutorial',
+        'USER': 'django',
+        'PASSWORD': 'PciNJ7.Tx8.n',
     }
 }
 

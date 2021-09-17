@@ -16,6 +16,9 @@ RUN USER=app && \
     mkdir -p /etc/fixuid && \
     printf "user: $USER\ngroup: $GROUP\n" > /etc/fixuid/config.yml
 
+# RUN apt-get update && apt-get install -y \
+
+
 USER app:app
 
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - 

@@ -6,7 +6,9 @@ authors = ["ishuzaks <k.suzuki512+develop@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "=3.9"
+python = "^3.9"
+Django = "^3.2.7"
+mysqlclient = "^2.0.3"
 
 [tool.poetry.dev-dependencies]
 

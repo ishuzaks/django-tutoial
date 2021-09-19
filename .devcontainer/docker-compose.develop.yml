@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  develop:
+    build:
+      context: .
+      dockerfile: ./containers/develop/Dockerfile
+    user: "${UID:-1000}:${GID:-1000}"
+    depends_on:
+      - db
+      
+volumes:
+  db-data:

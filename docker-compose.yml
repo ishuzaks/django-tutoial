@@ -3,21 +3,35 @@ version: "3.8"
 services:
   app:
     build:
-      context: ./app
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./containers/app/Dockerfile
     user: "${UID:-1000}:${GID:-1000}"
+    working_dir: /usr/src/tutorial/
+    command:
+      - "gunicorn"
+      - "tutorial.wsgi:application"
+      - "--reload"
+      - "--bind"
+      - "0.0.0.0:8000"
+    env_file: 
+      - containers/app/app.env
+    volumes:
+      - type: bind
+        source: ./tutorial
+        target: /usr/src/tutorial
+    ports:
+      - "80:8000"
+    depends_on:
+      - db
 
   db:
     image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: aS*S5.LP|nV2
-      MYSQL_DATABASE: django-tutorial
-      MYSQL_USER: django
-      MYSQL_PASSWORD: PciNJ7.Tx8.n
+    env_file: 
+      - containers/db/db.env
     volumes:
       - type: volume
         source: db-data
         target: /var/lib/mysql
-
+      
 volumes:
   db-data:

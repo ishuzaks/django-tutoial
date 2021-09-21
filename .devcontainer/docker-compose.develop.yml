@@ -4,7 +4,7 @@ services:
   develop:
     build:
       context: .
-      dockerfile: ./containers/develop/Dockerfile
+      dockerfile: ./.devcontainer/Dockerfile
     user: "${UID:-1000}:${GID:-1000}"
     depends_on:
       - db

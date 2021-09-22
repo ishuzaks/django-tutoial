@@ -12,7 +12,7 @@
 
 基本的にコマンドで作業を行うが同等のことを行えるのであればGUIアプリケーション使用しても構わない。
 
-### VSCodeのRemote Development Extensionを利用
+### 1. VSCodeのRemote Development Extensionを利用
 
 ホストOSで次のコマンドを実行する。
 

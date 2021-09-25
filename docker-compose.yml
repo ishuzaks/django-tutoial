@@ -27,7 +27,9 @@ services:
       - db
 
   db:
-    image: mysql:5.7
+    build:
+      context: .
+      dockerfile: ./containers/db/Dockerfile
     env_file: 
       - containers/db/db.env
     volumes:

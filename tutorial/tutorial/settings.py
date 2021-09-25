@@ -86,6 +86,10 @@ DATABASES = {
         "PASSWORD": os.environ.get("DB_PASSWORD"),
         "HOST": os.environ.get("DB_HOST"),
         "PORT": os.environ.get("DB_PORT"),
+        "OPTIONS": {
+            "charset": "utf8mb4",
+            "sql_mode": "TRADITIONAL,NO_AUTO_VALUE_ON_ZERO,ONLY_FULL_GROUP_BY",
+        },
     }
 }
 

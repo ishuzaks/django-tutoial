@@ -6,6 +6,8 @@ services:
       context: .
       dockerfile: ./.devcontainer/Dockerfile.develop
     user: "${UID:-1000}:${GID:-1000}"
+    env_file: 
+      - containers/app/app.env
     depends_on:
       - db
       

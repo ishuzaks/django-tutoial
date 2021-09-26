@@ -14,7 +14,7 @@
 
 - poetryコマンド (VSCodeのRemote Development Extensionを利用しない場合)
 
-## 再現方法
+## 再現・利用方法
 
 基本的にコマンドで作業を行うが同等のことを行えるのであればGUIアプリケーション使用しても構わない。
 
@@ -71,6 +71,23 @@ docker compose up -d --build
 「tutorial」フォルダがDjangoのプロジェクトフォルダなのでその中のファイル群を任意のエディタで編集しチュートリアルを進めていく。  
 ※tutorialフォルダはDjangoの入っているappコンテナにマウントされているので編集内容はリアルタイムで反映される。
 
+#### manage.pyの利用方法
+
+ホストOSにて、`docker compose exec app python manage.py [subcommands]`を実行する。
+
+##### 実行例
+
+```PowerShell
+# 全データ削除
+docker compose exec app python manage.py flush --no-input
+
+# マイグレーションファイルの作成
+docker compose exec app python manage.py makemigrations
+
+# データベースにマイグレーションを適用
+docker compose exec app python manage.py migrate
+```
+
 ## 注意点
 
 __以下の点に注意!!__
@@ -107,11 +124,8 @@ __以下の点に注意!!__
             docker compose up -d --build
             ```
 
-## 既知の問題
-
-- データベースに日本語(マルチバイト文字?)が格納できない
-- 開発用コンテナからappコンテナやdbコンテナにコマンドを発行できない。
-
 ## TODO
 
-- [ ] manage.pyの使い方を記述する
+- [ ] readme.md
+  - [x] manage.pyの使い方を記載する
+  - [ ] djangoプロジェクトの再作成方法を記載する

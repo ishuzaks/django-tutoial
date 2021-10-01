@@ -33,6 +33,7 @@
 		"ms-python.vscode-pylance",
 		"ms-python.python",
 		"batisteo.vscode-django",
+		"glavin001.unibeautify-vscode",
 	]
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
